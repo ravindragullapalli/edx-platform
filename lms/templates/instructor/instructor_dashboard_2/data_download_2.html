@@ -1,3 +1,10 @@
+<%page args="section_data" expression_filter="h"/>
+<%namespace name='static' file='/static_content.html'/>
+<%!
+from django.utils.translation import ugettext as _
+from openedx.core.djangolib.markup import HTML, Text
+%>
+
 <div class="data-download-container  action-type-container">
     <ul class="data-download-nav">
 
@@ -72,7 +79,7 @@
                     %endif
                     %endif
                 </select>
-                <button class="btn-brand download-report" type="button" value="download report">Download
+                <button class="btn-brand download-report ml-10" type="button" value="download report">Download
                     report
                 </button>
             </div>
@@ -132,7 +139,7 @@
                 certificates
             </option>
         </select>
-        <button  class="mb-20 btn-brand download-report" type="button" value="download report">Download
+        <button  class="mb-20 btn-brand download-report ml-10" type="button" value="download report">Download
             report
         </button>
         <div>
@@ -173,7 +180,7 @@
     <section id="grading" class="idash-section tab-data" aria-labelledby="header-grading">
         <h6 class="mb-15" id="header-grading">
             <strong>${_("NOTE")}: </strong>
-            Please select the report type and then click Download Report button
+            Please select learner status and then click Download Report button to download Course Grade Report
         </h6>
         <br>
 
@@ -183,7 +190,7 @@
             <option value="false">All Learners</option>
         </select>
 
-        <button class="mb-20 btn-brand grade-report-download" type="button"
+        <button class="mb-20 btn-brand grade-report-download ml-10" type="button"
                 value="download report"
                 data-endpoint="${ section_data['calculate_grades_csv_url'] }">Download Report
         </button>
@@ -238,7 +245,7 @@
 </div>
 
 %if settings.FEATURES.get('ENABLE_INSTRUCTOR_BACKGROUND_TASKS'):
-<div id="data_download_2" class="running-tasks-container action-type-container">
+<div class="running-tasks-container action-type-container">
     <hr>
     <h3 class="hd hd-3">${_("Pending Tasks")}</h3>
     <div class="running-tasks-section">
